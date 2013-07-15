@@ -1,6 +1,6 @@
 (meditations
   "Sequence comprehensions can bind each element in turn to a symbol"
-  (= __
+  (= '(0 1 2 3 4 5)
      (for [index (range 6)]
        index))
 
@@ -9,7 +9,7 @@
      (map (fn [index] (* index index))
           (range 6))
      (for [index (range 6)]
-       __))
+       ((fn [x] (* x x)) index)  ))
 
   "And also filtering"
   (= '(1 3 5 7 9)
